@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: repository dispatch test
+    - name: repository dispatch 1st step
       run: echo "${{ github.event.client_payload.branch }}"
+    - name: repository dispatch 2nd step
       run: echo "${{ github.event.client_payload.stage }}"
