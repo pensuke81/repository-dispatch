@@ -1,0 +1,14 @@
+name: repository dispatch test
+
+on:
+  repository_dispatch:
+    types: [hello]
+
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: repository dispatch test
+      run: echo Hello, world!
