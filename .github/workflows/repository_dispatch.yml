@@ -11,4 +11,5 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: repository dispatch test
-      run: echo "${{ toJson(github.event) }}"
+      run: echo "${{ github.event.client_payload.branch }}"
+      run: echo "${{ github.event.client_payload.stage }}"
