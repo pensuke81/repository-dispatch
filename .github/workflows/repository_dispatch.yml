@@ -13,4 +13,4 @@ jobs:
     - name: repository dispatch 1st step
       run: echo "${{ github.event.client_payload.branch }}"
     - name: repository dispatch 2nd step
-      run: echo "${{ github.event.client_payload.stage }}"
+      run: echo "${{ github.event.client_payload[github.event.client_payload.test] }}"
