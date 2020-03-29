@@ -1,8 +1,14 @@
 name: repository dispatch test
 
 on:
+  push:
+    branches:
+      - master
   repository_dispatch:
     types: [hello]
+
+env:
+  MY_VAR_STAGE: ${{ github.event.client_payload.stage || 'default_stage' }}
 
 jobs:
   my-first-job:
@@ -11,6 +17,4 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: repository dispatch 1st step
-      run: echo "${{ github.event.client_payload.branch }}"
-    - name: repository dispatch 2nd step
-      run: echo "${{ github.event.client_payload[github.event.client_payload.test] }}"
+      run: echo $MY_VAR_STAGE
