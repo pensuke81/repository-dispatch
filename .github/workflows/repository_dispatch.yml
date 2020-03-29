@@ -9,6 +9,7 @@ on:
 
 env:
   MY_VAR_STAGE: ${{ github.event.client_payload.stage || 'default_stage' }}
+  MY_VAR_SECRET: ${{ secrets.MY_SECRET_ENV }}
 
 jobs:
   my-first-job:
@@ -16,5 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: repository dispatch 1st step
+    - name: echo client payload or default variable
       run: echo $MY_VAR_STAGE
+
+    - name: echo test of my secret env
+      run: echo $MY_VAR_SECRET
